@@ -223,6 +223,8 @@ megaqc_upload: bool
 avail_modules: Dict[str, EntryPoint]
 avail_templates: Dict[str, EntryPoint]
 
+export_plots_timeout: int = 30
+
 
 def load_defaults():
     """
