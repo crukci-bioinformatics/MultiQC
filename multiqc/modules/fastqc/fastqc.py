@@ -1368,8 +1368,10 @@ class MultiqcModule(BaseMultiqcModule):
         for s_name in sorted(self.fastqc_data.keys()):
             s_names.append(str(s_name))
             for status_cat, _ in self.fastqc_data[s_name]["statuses"].items():
-                if status_cat not in status_cats:
-                    status_cats[status_cat] = status_cat.replace("_", " ").title().replace("Gc", "GC")
+                # CRUK-CI change: don't display "Per Tile Sequence Quality", ever.
+                if status_cat != "per_tile_sequence_quality":
+                    if status_cat not in status_cats:
+                        status_cats[status_cat] = status_cat.replace("_", " ").title().replace("Gc", "GC")
         for s_name in s_names:
             row: List[int] = []
             for status_cat in status_cats:

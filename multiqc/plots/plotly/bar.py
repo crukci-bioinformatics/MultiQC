@@ -337,7 +337,7 @@ class BarPlot(Plot[Dataset, BarPlotConfig]):
                         maxallowed=maxallowed,
                     ),
                 ),
-                showlegend=len(dataset.cats) > 1,
+                showlegend=len(dataset.cats) > 1 if pconfig.use_legend is None else pconfig.use_legend
             )
             dataset.trace_params.update(
                 orientation="h",

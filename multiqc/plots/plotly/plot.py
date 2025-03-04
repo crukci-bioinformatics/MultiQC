@@ -495,8 +495,6 @@ class Plot(BaseModel, Generic[DatasetT, PConfigT]):
             subtitles = []
             if len(n_samples_per_dataset) > 1:
                 subtitles += [dataset.label]
-            if n_samples > 1:
-                subtitles += [f"{n_samples} samples"]
             if subtitles:
                 title = dconfig.get("title", "")
                 assert isinstance(title, str)
